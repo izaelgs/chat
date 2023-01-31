@@ -1,0 +1,13 @@
+pipelines:
+  branches:
+    master:
+      - step:
+        name: Atualização Geral
+        script:
+          - pipe: atlassian/ssh-run:0.4.1
+            variables:
+              SSH_USER: $SSH_USER
+              SSH_SERVER: $SSH_SERVER
+              SSH_PORT: $SSH_PORT
+              COMMAND: "cd /var/www/chat; "
+              MODE: "commmand"
